@@ -5,8 +5,12 @@
       <h6 class="card-subtitle mb-2 text-muted">
         Using Angusr & Redux
       </h6>
-      <app-todo-overview></app-todo-overview>
-      <app-todo-list></app-todo-list>
+      <nav>
+        <a routerLink='/home' routerLinkActive="active">home</a>
+        <a routerLink='/about' routerLinkActive="active">about</a>
+      </nav>
+      
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

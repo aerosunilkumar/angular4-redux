@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import {NgRedux,NgReduxModule} from '@angular-redux/store';
-import {IAppState,INITIAL_STATE,rootReducer} from './store';
+import {IAppState,INITIAL_STATE,rootReducer, store} from './store';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -12,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { PizzaPartyAppModuleComponent } from './pizza-party-app-module/pizza-party-app-module.component';
 import { TodoOverviewComponent } from './todo-overview/todo-overview.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TodoListComponent } from './todo-list/todo-list.component';
   imports: [
     BrowserModule,
     FormsModule,
-    NgReduxModule
+    NgReduxModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -34,6 +36,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 export class AppModule {
   constructor(ngRedux:NgRedux<IAppState>)
   {
-    ngRedux.configureStore(rootReducer,INITIAL_STATE)
+    // ngRedux.configureStore(rootReducer,INITIAL_STATE)
+    ngRedux.provideStore(store);
   }
  }
